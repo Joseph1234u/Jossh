@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adeniyi Ayomide Joseph</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,800;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #c9970a;
+      --gold-light: #f0c040;
+      --dark: #0e0e0e;
+      --mid: #1c1c1c;
+      --card: #212121;
+      --text: #f2efe8;
+      --muted: #9a9590;
+      --border: #333;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, #2a1a00 0%, #0e0e0e 65%);
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,151,10,0.18) 0%, transparent 70%);
+      animation: pulse 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 2rem;
+      align-items: end;
+      padding: 5rem 3rem 4rem;
+    }
+
+    .hero-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hero-label::before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-name {
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -1px;
+      color: var(--text);
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-tagline {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 1.2rem;
+      max-width: 400px;
+      line-height: 1.6;
+      border-left: 2px solid var(--gold);
+      padding-left: 1rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .meta-chip {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    .meta-chip strong { color: var(--text); font-weight: 500; }
+
+    .hero-photo-wrap {
+      position: relative;
+      align-self: end;
+    }
+
+    .hero-photo-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 12px 12px 0 0;
+      background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+      z-index: 0;
+    }
+
+    .hero-photo {
+      position: relative;
+      z-index: 1;
+      width: 260px;
+      height: 320px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 10px 10px 0 0;
+      display: block;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-hint::after {
+      content: "";
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(180deg, var(--gold), transparent);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── BODY ── */
+    .body {
+      background: var(--dark);
+      padding: 5rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 5rem;
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .sec-num {
+      font-family: "Fraunces", serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: rgba(201,151,10,0.12);
+      line-height: 1;
+      user-select: none;
+    }
+
+    .sec-title {
+      font-family: "Fraunces", serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .sec-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    /* ── INNOVATION ── */
+    .innovation-card {
+      background: linear-gradient(135deg, #1a1200, #1c1c1c);
+      border: 1px solid #3a2e00;
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .innovation-card::before {
+      content: "\201C";
+      font-family: "Fraunces", serif;
+      font-size: 8rem;
+      color: rgba(201,151,10,0.1);
+      position: absolute;
+      top: -1rem; left: 1rem;
+      line-height: 1;
+    }
+
+    .innovation-card::after {
+      content: "";
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(201,151,10,0.06) 0%, transparent 70%);
+    }
+
+    .innovation-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,151,10,0.12);
+      border: 1px solid rgba(201,151,10,0.3);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .innovation-text {
+      position: relative;
+      z-index: 1;
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #c8c2b8;
+    }
+
+    .innovation-text p:first-child {
+      font-family: "Fraunces", serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 2rem; }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 6px; bottom: 6px;
+      width: 1px;
+      background: linear-gradient(180deg, var(--gold), transparent);
+    }
+
+    .tl-item { position: relative; margin-bottom: 2.2rem; }
+    .tl-item:last-child { margin-bottom: 0; }
+
+    .tl-dot {
+      position: absolute;
+      left: -2.45rem; top: 4px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 10px rgba(201,151,10,0.5);
+    }
+
+    .tl-date { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+    .tl-degree { font-size: 1rem; font-weight: 600; color: var(--text); }
+    .tl-school { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ── WORK ── */
+    .work-block {
+      padding: 1.2rem 1.5rem;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      background: var(--card);
+    }
+    .work-org { font-weight: 600; font-size: 1rem; color: var(--text); }
+    .work-role { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ── CONTACT ── */
+    .c-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      transition: all 0.25s;
+      color: var(--text);
+    }
+
+    .c-card:hover {
+      border-color: var(--gold);
+      background: #1a1400;
+      transform: translateY(-2px);
+    }
+
+    .c-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .c-tiktok { background: #010101; }
+    .c-label { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .c-value { font-size: 0.9rem; font-weight: 500; margin-top: 0.15rem; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: var(--border);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.5rem 2rem;
+      }
+      .hero-photo-wrap {
+        width: 100%;
+      }
+      .hero-photo {
+        width: 100%;
+        height: 260px;
+        border-radius: 10px;
+      }
+      .body { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <p class="hero-label">Portfolio &amp; Resume</p>
+        <h1 class="hero-name">Adeniyi<br><em>Ayomide</em><br>Joseph</h1>
+        <p class="hero-tagline">An Electrical and Electronic Engineering Student of Federal Polytechnic Ado-Ekiti</p>
+        <div class="hero-meta">
+          <span class="meta-chip"><strong>DOB</strong> &nbsp;08 / 08 / 2002</span>
+          <span class="meta-chip"><strong>Sex</strong> &nbsp;Male</span>
+          <span class="meta-chip"><strong>Work</strong> &nbsp;Entrepreneur</span>
+          <span class="meta-chip"><strong>Email</strong> &nbsp;<script>document.write("adeniyiayomide706"+"@"+"gmail.com")</script></span>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="data:image/jpeg;base64,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" alt="Adeniyi Ayomide Joseph">
+      </div>
+    </div>
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <div class="body">
+
+    <section>
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">Innovation</h2>
+        <span class="sec-line"></span>
+      </div>
+      <div class="innovation-card">
+        <span class="innovation-badge">&#9679; Entrepreneurial Vision</span>
+        <div class="innovation-text">
+          <p>I didn&#39;t just start a poultry farm &mdash; I innovated one.</p>
+          <p>Well it began as a simple idea to raise birds and sell eggs &mdash; quickly turned into a vision bigger than myself. I saw poultry farming not just as feeding chickens, but as feeding communities, creating jobs, and building wealth from the ground up.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">Education</h2>
+        <span class="sec-line"></span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2019 &ndash; 2021</div>
+          <div class="tl-degree">ND1 &mdash; Electrical &amp; Electronic Engineering</div>
+          <div class="tl-school">Federal Polytechnic, Ado-Ekiti</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2021 &ndash; 2022</div>
+          <div class="tl-degree">ND2 &mdash; Electrical &amp; Electronic Engineering</div>
+          <div class="tl-school">Federal Polytechnic, Ado-Ekiti</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2025 &ndash; Present</div>
+          <div class="tl-degree">HND1 &mdash; Electrical &amp; Electronic Engineering</div>
+          <div class="tl-school">Federal Polytechnic, Ado-Ekiti</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">Work</h2>
+        <span class="sec-line"></span>
+      </div>
+      <div class="work-block">
+        <div class="work-org">Self-Employed</div>
+        <div class="work-role">Entrepreneur &mdash; Poultry Farm Innovation &middot; Present</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title">Contact</h2>
+        <span class="sec-line"></span>
+      </div>
+      <a class="c-card" href="https://www.tiktok.com/@1_niyi?_r=1&amp;_t=ZS-951AcjOwbav" target="_blank">
+        <div class="c-icon c-tiktok">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="c-label">TikTok</div>
+          <div class="c-value">@1_niyi</div>
+        </div>
+      </a>
+    </section>
+
+  </div>
+
+  <footer>Adeniyi Ayomide Joseph &mdash; Fed Poly Ado-Ekiti</footer>
+
+</body>
+</html>
